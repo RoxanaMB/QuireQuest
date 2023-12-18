@@ -9,6 +9,9 @@ import { AuthComponent } from './quire-quest/pages/auth/auth.component';
 import { AccountComponent } from './quire-quest/pages/account/account.component';
 import { LoginPageComponent } from './quire-quest/pages/login-page/login-page.component';
 import { SignUpPageComponent } from './quire-quest/pages/sign-up-page/sign-up-page.component';
+import { HomePageComponent } from './quire-quest/pages/home-page/home-page.component';
+import { NavbarComponent } from './quire-quest/components/navbar/navbar.component';
+import { ChatPageComponent } from './quire-quest/pages/chat-page/chat-page.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { SignUpPageComponent } from './quire-quest/pages/sign-up-page/sign-up-pa
     AccountComponent,
     LoginPageComponent,
     SignUpPageComponent,
+    HomePageComponent,
+    NavbarComponent,
+    ChatPageComponent,
   ],
   imports: [
     BrowserModule,
