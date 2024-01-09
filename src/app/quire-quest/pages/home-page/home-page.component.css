@@ -1,1 +1,60 @@
+.wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: left;
+  background: linear-gradient(
+    to left,
+    hsla(205.26, 66.43%, 28.04%, 0) 0%,
+    hsla(205.26, 66.43%, 28.04%, 0.175) 17.5%,
+    hsla(205.26, 66.43%, 28.04%, 0.303) 30.3%,
+    hsla(205.26, 66.43%, 28.04%, 0.392) 39.2%,
+    hsla(205.26, 66.43%, 28.04%, 0.449) 44.9%,
+    hsla(205.26, 66.43%, 28.04%, 0.481) 48.1%,
+    hsla(205.26, 66.43%, 28.04%, 0.496) 49.6%,
+    hsla(205.26, 66.43%, 28.04%, 0.5) 50%,
+    hsla(205.26, 66.43%, 28.04%, 0.5) 50%,
+    hsla(205.26, 66.43%, 28.04%, 0.504) 50.4%,
+    hsla(205.26, 66.43%, 28.04%, 0.519) 51.9%,
+    hsla(205.26, 66.43%, 28.04%, 0.551) 55.1%,
+    hsla(205.26, 66.43%, 28.04%, 0.608) 60.8%,
+    hsla(205.26, 66.43%, 28.04%, 0.697) 69.7%,
+    hsla(205.26, 66.43%, 28.04%, 0.825) 82.5%,
+    hsl(205.26, 66.43%, 28.04%) 100%
+  ), url("../../../../assets/grupo_IA.jpg");
+  background-size: cover;
+  background-position: center;  
+  &:after {
+    content: '';
+    position: absolute;
+    inset: 0%;
+    backdrop-filter: blur(20px);
+    border: 1px solid white;
+    mask: linear-gradient(270deg, transparent, black 70%);
+  }
+}
+
+.wrap-text {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 3rem;
+  z-index: 1;
+  
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 
