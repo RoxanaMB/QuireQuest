@@ -10,8 +10,11 @@ import { AccountComponent } from './quire-quest/pages/account/account.component'
 import { LoginPageComponent } from './quire-quest/pages/login-page/login-page.component';
 import { SignUpPageComponent } from './quire-quest/pages/sign-up-page/sign-up-page.component';
 import { HomePageComponent } from './quire-quest/pages/home-page/home-page.component';
-import { NavbarComponent } from './quire-quest/components/navbar/navbar.component';
 import { ChatPageComponent } from './quire-quest/pages/chat-page/chat-page.component';
+
+import { NavbarComponent } from './quire-quest/components/navbar/navbar.component';
+import { PricingCardComponent } from './quire-quest/components/pricing-card/pricing-card.component';
+import { DescriptionComponent } from './quire-quest/components/description/description.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,8 @@ import { ChatPageComponent } from './quire-quest/pages/chat-page/chat-page.compo
     HomePageComponent,
     NavbarComponent,
     ChatPageComponent,
+    PricingCardComponent,
+    DescriptionComponent,
   ],
   imports: [
     BrowserModule,
