@@ -25,7 +25,7 @@ export class LoginPageComponent {
       console.log(token);
       if (token) {
         localStorage.setItem("token", token);
-        window.location.href = "/account";
+        window.location.href = "/chat";
       }
     });
   }
