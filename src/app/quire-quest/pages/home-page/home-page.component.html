@@ -1,29 +1,29 @@
-<div class="snap-y snap-mandatory h-screen overflow-y-scroll">
+<div class="h-screen">
   <div class="wrap">
     <div class="wrap-text">
-      <section class="max-h-screen snap-center">
+      <section class="max-h-screen">
         <div
           class="sm:max-w-screen-xl sm:w-screen w-64 sm:px-36 px-8 py-8 mx-auto"
         >
           <div class="mr-auto place-self-center lg:col-span-7">
             <h1
-              class="max-w-2xl mb-4 text-4xl text-white font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
+              class="max-w-2xl mb-4 text-4xl text-white font-extrabold tracking-tight leading-none md:text-5xl xl:text-8xl dark:text-white"
             >
-              Choose, connect, learn
+              Elige, conecta, aprende.
             </h1>
             <p
-              class="max-w-2xl mb-6 font-normal text-white lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
+              class="max-w-2xl mb-6 font-normal text-white lg:mb-8 md:text-lg lg:text-xl"
             >
-              Discover a world of infinite and personalized knowledge. Connect
-              with multiple artificial intelligences to get answers beyond your
-              expectations! Your curiosity guides the experience, explore and
-              learn like never before!
+              Descubre un mundo de conocimiento infinito y personalizado.
+              Conéctate con múltiples inteligencias artificiales para obtener
+              respuestas más allá de tus expectativas. ¡Tu curiosidad guía la
+              experiencia, explora y aprende como nunca antes!
             </p>
             <a
               href="/login"
-              class="inline-flex items-center justify-center bg-polo-blue-950 px-5 py-3 mr-3 font-medium text-center text-white rounded-lg hover:bg-polo-blue-300 focus:ring-2 focus:ring-polo-blue-200"
+              class="inline-flex items-center sm:text-lg justify-center bg-polo-blue-950 px-10 sm:px-16 py-1 sm:py-3 mr-3 font-medium text-center text-white rounded-lg hover:font-bold hover:text-polo-blue-950 border-4 border-polo-blue-950 hover:bg-white focus:ring-2 focus:ring-polo-blue-200"
             >
-              Get started
+              Inicio
               <svg
                 class="w-5 h-5 ml-2 -mr-1"
                 fill="currentColor"
@@ -37,21 +37,19 @@
                 ></path>
               </svg>
             </a>
-          </div>
-       </div>
+          </div> 
+        </div>
       </section>
     </div>
   </div>
 
-  <section class="bg-polo-blue-100 max-h-screen snap-start sm:overflow-hidden overflow-scroll">
-    <div class="py-8 px-4 pb-32 mx-auto max-w-screen-xl sm:max-h-fit max-h-screen sm:py-16">
+    <div class="bg-polo-blue-100 sm:max-h-fit pt-36 sm:h-screen">
       <app-description></app-description>
     </div>
-  </section>
 
-  <section class="bg-polo-blue-100 snap-always snap-start sm:overflow-hidden overflow-scroll">
-    <div class="max-w-screen-2xl py-8 px-4 my-48 mx-auto sm:max-h-fit max-h-screen sm:py-16 lg:px-6">
+    <div
+      class="bg-polo-blue-100 sm:max-h-fit max-h-screen sm:py-10 lg:px-6"
+    >
       <app-pricing-card></app-pricing-card>
     </div>
-  </section>
 </div>
