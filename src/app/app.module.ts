@@ -17,6 +17,7 @@ import { ChatPageComponent } from './quire-quest/pages/chat-page/chat-page.compo
 import { NavbarComponent } from './quire-quest/components/navbar/navbar.component';
 import { PricingCardComponent } from './quire-quest/components/pricing-card/pricing-card.component';
 import { DescriptionComponent } from './quire-quest/components/description/description.component';
+import { HistorialComponent } from './quire-quest/components/historial/historial.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { DescriptionComponent } from './quire-quest/components/description/descr
     ChatPageComponent,
     PricingCardComponent,
     DescriptionComponent,
+    HistorialComponent,
   ],
   imports: [
     BrowserModule,
