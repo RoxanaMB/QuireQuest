@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
+import { AutosizeModule } from 'ngx-autosize';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { NavbarComponent } from './quire-quest/components/navbar/navbar.componen
 import { PricingCardComponent } from './quire-quest/components/pricing-card/pricing-card.component';
 import { DescriptionComponent } from './quire-quest/components/description/description.component';
 import { HistorialComponent } from './quire-quest/components/historial/historial.component';
+import { ChatInputComponent } from './quire-quest/components/chat-input/chat-input.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { HistorialComponent } from './quire-quest/components/historial/historial
     PricingCardComponent,
     DescriptionComponent,
     HistorialComponent,
+    ChatInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { HistorialComponent } from './quire-quest/components/historial/historial
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    AutosizeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
