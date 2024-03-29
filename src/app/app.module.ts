@@ -20,6 +20,7 @@ import { PricingCardComponent } from './quire-quest/components/pricing-card/pric
 import { DescriptionComponent } from './quire-quest/components/description/description.component';
 import { HistorialComponent } from './quire-quest/components/historial/historial.component';
 import { ChatInputComponent } from './quire-quest/components/chat-input/chat-input.component';
+import { ChatMessagesComponent } from './quire-quest/components/chat-messages/chat-messages.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ChatInputComponent } from './quire-quest/components/chat-input/chat-inp
     DescriptionComponent,
     HistorialComponent,
     ChatInputComponent,
+    ChatMessagesComponent,
   ],
   imports: [
     BrowserModule,
