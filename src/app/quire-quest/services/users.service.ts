@@ -10,10 +10,10 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   login(user: any): Observable<any> {
-    return this.http.post("http://127.0.0.1:8000/login", user);
+    return this.http.post("http://127.0.0.1:5000/login", user);
   }
 
   register(user: any): Observable<any> {
-    return this.http.post("http://127.0.0.1:8000/register", user);
+    return this.http.post("http://127.0.0.1:5000/register", user);
   }
 }
