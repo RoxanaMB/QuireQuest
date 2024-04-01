@@ -1,9 +1,5 @@
-<nav
-  class="bg-white w-full z-20 top-0 start-0 border-b border-gray-200"
->
-  <div
-    class="mr-2 flex flex-wrap items-center justify-between mx-auto py-2"
-  >
+<nav class="bg-white w-full z-20 top-0 start-0 border-b border-gray-200">
+  <div class="mr-2 flex flex-wrap items-center justify-between mx-auto py-2">
     <div class="flex order-2 rtl:space-x-reverse">
       <button
         type="button"
@@ -74,15 +70,13 @@
         <select
           id="modelos"
           class="bg-gray-50 border w-44 border-gray-300 text-gray-900 text-sm rounded-lg block p-1.5"
+          (change)="onModelChange($event)"
         >
-          <option selected>Elige un modelo</option>
-          <option value="You">You</option>
-          <option value="AiChatOnline">AiChatOnline</option>
-          <option value="ChatgptNext">ChatgptNext</option>
-          <option value="GptGo">GptGo</option>
-          <option value="Koala">Koala</option>
-          <option value="Llama2">Llama2</option>
-          <option value="OnlineGpt">OnlineGpt</option>
+          <option disabled selected>Elige un modelo</option>
+          <!-- Iterar sobre los modelos y mostrar opciones -->
+          <option *ngFor="let modelo of models" [value]="modelo.id">
+            {{ modelo.name }}
+          </option>
         </select>
       </form>
     </div>

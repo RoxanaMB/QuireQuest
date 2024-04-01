@@ -12,12 +12,19 @@ export class ChatInputComponent {
   topic: string;
   rate: number;
   chat: string;
+  ia_model: string;
 
   constructor(public messagesService: MessagesService, public serviceService: ServiceService) {
     this.content = "";
     this.topic = "";
     this.rate = 0;
     this.chat = "";
+    this.ia_model = "";
+
+    this.serviceService.getIAModel.subscribe((ia_model: string) => {
+      this.ia_model = ia_model;
+      console.log(this.ia_model);
+    });
   }
 
   sendMessage() {
@@ -25,7 +32,8 @@ export class ChatInputComponent {
       content: this.content,
       topic: this.topic,
       rate: this.rate,
-      chat: this.chat
+      chat: this.chat,
+      ia_model: this.ia_model
     };
     
     this.serviceService.setUserMessage(this.content);

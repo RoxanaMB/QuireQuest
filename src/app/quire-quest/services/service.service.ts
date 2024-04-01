@@ -7,9 +7,11 @@ import { BehaviorSubject } from 'rxjs';
 export class ServiceService {
   public ia_message = new BehaviorSubject('');
   public user_message = new BehaviorSubject('');
+  public ia_model = new BehaviorSubject('');
 
   getIAMessage = this.ia_message.asObservable();
   getUserMessage = this.user_message.asObservable();
+  getIAModel = this.ia_model.asObservable();
 
   constructor() { }
 
@@ -19,5 +21,10 @@ export class ServiceService {
 
   setUserMessage(user_message:string){
     this.user_message.next(user_message);
+  }
+
+  setIAModel(ia_model:string){
+    this.ia_model.next(ia_model);
+    console.log(ia_model);
   }
 }
