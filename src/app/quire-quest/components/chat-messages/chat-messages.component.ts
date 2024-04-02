@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ServiceService } from '../../services/service.service';
 
 @Component({
@@ -7,7 +7,9 @@ import { ServiceService } from '../../services/service.service';
   styleUrls: ['./chat-messages.component.css']
 })
 export class ChatMessagesComponent implements OnInit{
-  messages: { user: string, ia: string }[];
+
+  @Input() messages: { role: string, name: string, content: string }[];
+  ia_model: string;
 
   ngOnInit(): void {
     throw new Error('Method not implemented.');
@@ -15,14 +17,22 @@ export class ChatMessagesComponent implements OnInit{
 
   constructor(public serviceService: ServiceService) {
     this.messages = [];
+    this.ia_model = '';
 
-    this.serviceService.getIAMessage.subscribe((ia_message: string) => {
-      this.messages[this.messages.length - 1].ia = ia_message;
+    this.serviceService.getIAModel.subscribe((ia_model: string) => {
+      this.ia_model = ia_model;
     });
 
     this.serviceService.getUserMessage.subscribe((user_message: string) => {
-      this.messages.push({ user: user_message, ia: '' });
+      this.messages.push({ role: 'user', name: 'Usuario', content: user_message});
       console.log(this.messages);
     });
+
+    this.serviceService.getIAMessage.subscribe((ia_message: string) => {
+      this.messages.push({ role: 'assistant', name: this.ia_model, content: ia_message});
+      console.log(this.messages);
+    });
+
+    this.serviceService.setMessages(this.messages);
   }
 }

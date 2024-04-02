@@ -74,7 +74,7 @@
         >
           <option disabled selected>Elige un modelo</option>
           <!-- Iterar sobre los modelos y mostrar opciones -->
-          <option *ngFor="let modelo of models" [value]="modelo.id">
+          <option *ngFor="let modelo of models" [value]="modelo.name">
             {{ modelo.name }}
           </option>
         </select>

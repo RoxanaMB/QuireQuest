@@ -1,8 +1,10 @@
 <div>
   <app-historial></app-historial>
 
-  <div class="flex flex-col h-screen sm:h-full sm:flex-row justify-between">
-    <div class="flex max-h-screen flex-col w-full sm:min-h-screen sm:h-full h-1/2 p-2 md:ml-56">
+  <div class="flex h-screen flex-col sm:flex-row justify-between md:ml-56">
+    <app-chat class="h-full w-full"></app-chat>
+    <app-chat class="h-full w-full"></app-chat>
+    <!-- <div class="flex max-h-screen flex-col w-full sm:min-h-screen sm:h-full h-1/2 p-2 ">
       <div class="flex-grow sticky top-0 z-10 flex-shrink-0 min-h-0">
         <app-navbar></app-navbar>
       </div>
@@ -14,11 +16,11 @@
       </div>
     </div>
     
-    <!-- <div class="flex max-h-screen flex-col w-full sm:min-h-screen sm:h-full h-1/2 p-2">
+    <div class="flex max-h-screen flex-col w-full sm:min-h-screen sm:h-full h-1/2 p-2">
       <div class="flex-grow sticky top-0 z-10 flex-shrink-0 min-h-0">
         <app-navbar></app-navbar>
       </div>
-      <div class="sm:py-10 py-3 px-1 sm:flex-1 overflow-y-auto">
+      <div class="sm:py-10 py-3 px-1 overflow-y-auto">
         <app-chat-messages></app-chat-messages>
       </div>
       <div class="border-2 sticky bottom-0 sm:h-full border-gray-200 rounded-lg flex-shrink-0">

@@ -8,10 +8,12 @@ export class ServiceService {
   public ia_message = new BehaviorSubject('');
   public user_message = new BehaviorSubject('');
   public ia_model = new BehaviorSubject('');
+  public messages = new BehaviorSubject([]);
 
   getIAMessage = this.ia_message.asObservable();
   getUserMessage = this.user_message.asObservable();
   getIAModel = this.ia_model.asObservable();
+  getMessages = this.messages.asObservable();
 
   constructor() { }
 
@@ -25,6 +27,9 @@ export class ServiceService {
 
   setIAModel(ia_model:string){
     this.ia_model.next(ia_model);
-    console.log(ia_model);
+  }
+
+  setMessages(messages:any){
+    this.messages.next(messages);
   }
 }

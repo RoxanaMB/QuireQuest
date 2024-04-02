@@ -1,172 +1,54 @@
 <div *ngFor="let message of messages; let i = index">
-  <div class="flex pt-5 items-end justify-end gap-2.5" *ngIf="i > 0">
-    <div class="flex flex-col gap-1 max-w-screen-lg">
-      <div
-        class="flex items-center justify-end pr-1 space-x-2 rtl:space-x-reverse"
-      >
-        <span class="text-sm font-semibold text-gray-900">Usuario</span>
-      </div>
-      <div
-        class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl"
-      >
-        <p class="text-sm font-normal text-gray-900">
-          {{ message.user }}
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="space-y-5 h-full relative overflow-auto overflow-y-auto" *ngIf="i > 0">
-    <div class="flex items-start gap-2.5 h-full divide-y">
+  <div *ngIf="i > 0 && message.content">
+    <div
+      class="flex pt-5 items-end justify-end gap-2.5"
+      *ngIf="message.role === 'user'"
+    >
       <div class="flex flex-col gap-1 max-w-screen-lg">
-        <div class="flex items-center space-x-2 rtl:space-x-reverse">
-          <span class="text-sm font-semibold text-gray-900">GptGo</span>
+        <div
+          class="flex items-center justify-end pr-1 space-x-2 rtl:space-x-reverse"
+        >
+          <span
+            class="text-sm font-semibold text-gray-900"
+            >{{ message.name }}</span
+          >
         </div>
         <div
           class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl"
         >
-          <p class="text-sm font-normal text-gray-900">
-            {{ message.ia }}
+          <p
+            class="text-sm font-normal text-gray-900"
+          >
+            {{ message.content }}
           </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="space-y-5 h-full relative overflow-auto overflow-y-auto"
+      *ngIf="message.role === 'assistant'"
+    >
+      <div class="flex items-start gap-2.5 h-full divide-y">
+        <div class="flex flex-col gap-1 max-w-screen-lg">
+          <div class="flex items-center space-x-2 rtl:space-x-reverse">
+            <span
+              class="text-sm font-semibold text-gray-900"
+            >
+              {{ message.name }}</span
+            >
+          </div>
+          <div
+            class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl"
+          >
+            <p
+              class="text-sm font-normal text-gray-900"
+            >
+              {{ message.content }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- <div class="flex items-end justify-end gap-2.5">
-    <div class="flex flex-col gap-1 max-w-screen-lg">
-      <div class="flex items-center justify-end pr-1 space-x-2 rtl:space-x-reverse">
-        <span class="text-sm font-semibold text-gray-900 "
-          >Usuario</span
-        >
-      </div>
-      <div
-        class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl"
-      >
-        <p class="text-sm font-normal text-gray-900 ">
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="flex items-start gap-2.5">
-    <div class="flex flex-col gap-1 max-w-screen-lg">
-      <div class="flex items-center space-x-2 rtl:space-x-reverse">
-        <span class="text-sm font-semibold text-gray-900"
-          >GptGo</span
-        >
-        <span class="text-sm font-normal text-gray-500"
-          >11:46</span
-        >
-      </div>
-      <div
-        class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl"
-      >
-        <p class="text-sm font-normal text-gray-900 ">
-          That's awesome. I think our users will really appreciate the
-          improvements.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="flex items-end justify-end gap-2.5">
-    <div class="flex flex-col gap-1 max-w-screen-lg">
-      <div class="flex items-center justify-end pr-1 space-x-2 rtl:space-x-reverse">
-        <span class="text-sm font-semibold text-gray-900 "
-          >Usuario</span
-        >
-        <span class="text-sm font-normal text-gray-500"
-          >11:46</span
-        >
-      </div>
-      <div
-        class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl"
-      >
-        <p class="text-sm font-normal text-gray-900 ">
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="flex items-start gap-2.5">
-    <div class="flex flex-col gap-1 max-w-screen-lg">
-      <div class="flex items-center space-x-2 rtl:space-x-reverse">
-        <span class="text-sm font-semibold text-gray-900"
-          >GptGo</span
-        >
-        <span class="text-sm font-normal text-gray-500"
-          >11:46</span
-        >
-      </div>
-      <div
-        class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl"
-      >
-        <p class="text-sm font-normal text-gray-900 ">
-          That's awesome. I think our users will really appreciate the
-          improvements.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="flex items-end justify-end gap-2.5">
-    <div class="flex flex-col gap-1 max-w-screen-lg">
-      <div class="flex items-center justify-end pr-1 space-x-2 rtl:space-x-reverse">
-        <span class="text-sm font-semibold text-gray-900 "
-          >Usuario</span
-        >
-        <span class="text-sm font-normal text-gray-500"
-          >11:46</span
-        >
-      </div>
-      <div
-        class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl"
-      >
-        <p class="text-sm font-normal text-gray-900 ">
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-          That's awesome. I think our users will really appreciate the
-          improvements.
-        </p>
-      </div>
-    </div>
-  </div>
-</div> -->

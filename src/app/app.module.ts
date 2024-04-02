@@ -21,6 +21,7 @@ import { DescriptionComponent } from './quire-quest/components/description/descr
 import { HistorialComponent } from './quire-quest/components/historial/historial.component';
 import { ChatInputComponent } from './quire-quest/components/chat-input/chat-input.component';
 import { ChatMessagesComponent } from './quire-quest/components/chat-messages/chat-messages.component';
+import { ChatComponent } from './quire-quest/components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ChatMessagesComponent } from './quire-quest/components/chat-messages/ch
     HistorialComponent,
     ChatInputComponent,
     ChatMessagesComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,

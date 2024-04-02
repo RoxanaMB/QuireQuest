@@ -13,6 +13,7 @@ export class ChatInputComponent {
   rate: number;
   chat: string;
   ia_model: string;
+  messages: { role: string, name: string, content: string }[];
 
   constructor(public messagesService: MessagesService, public serviceService: ServiceService) {
     this.content = "";
@@ -20,16 +21,22 @@ export class ChatInputComponent {
     this.rate = 0;
     this.chat = "";
     this.ia_model = "";
+    this.messages = [];
 
     this.serviceService.getIAModel.subscribe((ia_model: string) => {
       this.ia_model = ia_model;
       console.log(this.ia_model);
     });
+
+    this.serviceService.getMessages.subscribe((messages: any) => {
+      this.messages = messages;
+      console.log(this.messages);
+    });
   }
 
   sendMessage() {
     const message = {
-      content: this.content,
+      content: this.messages,
       topic: this.topic,
       rate: this.rate,
       chat: this.chat,
