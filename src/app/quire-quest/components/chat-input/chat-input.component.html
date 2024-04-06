@@ -9,7 +9,7 @@
         [maxRows]="5"
         [minRows]="1"
         [(ngModel)]="content"
-        (keyup.enter)="sendMessage(); content = '';"
+        (keyup.enter)="click(); content = '';"
         class="bg-gray-50 text-gray-900 scroll text-sm rounded-lg w-full p-2"
         placeholder="Pregunta algo..."
         required
@@ -32,7 +32,7 @@
       </div>
       <button
         type="submit"
-        (click)="sendMessage(); content = '';"
+        (click)="click(); content = '';"
         class="inline-flex items-center py-1 px-3 ms-2 text-sm font-medium text-white bg-polo-blue-900 rounded-lg border border-polo-blue-900 hover:bg-polo-blue-950 hover:border-polo-blue-950 focus:ring-4 focus:outline-none focus:ring-blue-300"
       >
         Enviar

@@ -1,5 +1,5 @@
-<div *ngFor="let message of messages; let i = index">
-  <div *ngIf="i > 0 && message.content">
+<div *ngFor="let message of messages">
+  <div>
     <div
       class="flex pt-5 items-end justify-end gap-2.5"
       *ngIf="message.role === 'user'"

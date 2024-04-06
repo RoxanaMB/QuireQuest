@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ModelsService } from '../../services/models.service';
-import { ServiceService } from '../../services/service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +7,10 @@ import { ServiceService } from '../../services/service.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  // model: string | null;
+  @Output() dataChange = new EventEmitter();
   models: { id: string, name: string }[];
 
-  constructor(public modelsService: ModelsService, public serviceService: ServiceService) {
-    // this.model = "";
+  constructor(public modelsService: ModelsService) {
     this.models = [];
   }
 
@@ -27,16 +25,10 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  // setModel(model: string) {
-  //   this.model = model;
-  // }
-
   onModelChange(event: any) {
     if (event.target && event.target.value) {
-      // this.setModel(event.target.value);
-      this.serviceService.setIAModel(event.target.value);
+      this.dataChange.emit(event.target.value);
     } else {
-      // Manejar el caso en el que no hay un valor seleccionado
       console.error("No se ha seleccionado ningún modelo.");
     }
   }
