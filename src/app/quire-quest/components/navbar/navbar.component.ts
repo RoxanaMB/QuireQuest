@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.getModels();
-    console.log(this.models);
   }
 
   getModels() {

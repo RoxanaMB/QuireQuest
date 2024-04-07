@@ -16,7 +16,6 @@ export class ChatInputComponent {
   }
 
   click() {
-    console.log(this.content);
     this.dataChange.emit(this.content);
   }
 

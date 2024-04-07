@@ -19,9 +19,7 @@ export class HistorialComponent {
     if (!token) {
       window.location.href = '/login';
     } else {
-      console.log(token);
       this.usersService.getUser(token).subscribe((response: {user_id: string, user_name: string}) => {
-        console.log(response);
         this.user_id = response.user_id;
         this.user_name = response.user_name;
       });
