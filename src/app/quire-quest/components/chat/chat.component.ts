@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MessagesService } from './../../services/messages.service';
+import { UsersService } from './../../services/users.service';
 
 @Component({
   selector: 'app-chat',
@@ -12,13 +13,27 @@ export class ChatComponent {
   rate: number;
   chat: string;
   ia_model: string;
+  user_name: string;
 
-  constructor(public messagesService: MessagesService) { 
+  constructor(public messagesService: MessagesService, public usersService: UsersService) { 
     this.messages = [];
     this.ia_model = '';
     this.topic = '';
     this.rate = 0;
     this.chat = '';
+    this.user_name = '';
+
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      window.location.href = '/login';
+    } else {
+      console.log(token);
+      this.usersService.getUser(token).subscribe((response: {user_id: string, user_name: string}) => {
+        console.log(response);
+        this.user_name = response.user_name;
+      });
+    }
   }
 
   onSelectModel(event: any) {
@@ -28,7 +43,7 @@ export class ChatComponent {
 
   onChangeData(event: any) {
     console.log(event);
-    this.messages.push({ role: 'user', name: 'Usuario', content: event });
+    this.messages.push({ role: 'user', name: this.user_name, content: event });
     console.log(this.messages);
 
     this.sendMessage();

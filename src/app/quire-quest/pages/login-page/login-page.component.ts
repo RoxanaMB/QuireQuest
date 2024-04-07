@@ -20,9 +20,8 @@ export class LoginPageComponent {
       email: this.email,
       password: this.password
     };
-    this.userService.login(user).subscribe((response: {token: string}) => {
+    this.userService.login(user).subscribe((response: {token: string, user_name: string, user_id: string}) => {
       const token = response.token;
-      console.log(token);
       if (token) {
         localStorage.setItem("token", token);
         window.location.href = "/chat";

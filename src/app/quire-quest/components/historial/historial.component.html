@@ -12,14 +12,13 @@
             class="h-6 me-3 sm:h-7"
             alt="QuireQuest Logo"
           />
-          <span
-            class="self-center text-xl font-semibold whitespace-nowrap "
+          <span class="self-center text-xl font-semibold whitespace-nowrap"
             >QuireQuest</span
           >
         </a>
       </div>
       <a
-        class="flex justify-between text-sm items-center p-1 py-2 pr-3 border text-gray-900 rounded-lg  hover:bg-gray-100 group"
+        class="flex justify-between text-sm items-center p-1 py-2 pr-3 border text-gray-900 rounded-lg hover:bg-gray-100 group"
       >
         <span class="ms-3 font-semibold">Nuevo chat</span>
         <svg
@@ -65,5 +64,16 @@
         </li>
       </ul>
     </div>
+    <!-- Nombre del usuario que inició sesión -->
+    <p class="fixed bottom-10 left-0 w-full py-3 text-xs font-thin px-4 text-gray-400 bg-gray-50">
+      {{ user_name }}
+    </p>
+    <!-- Botón para cerrar sesión al final de la barra lateral -->
+    <button
+      class="fixed bottom-0 left-0 w-full py-3 text-sm font-semibold text-center text-red-600 hover:text-red-900 bg-gray-50 border-t border-gray-200"
+      onclick="localStorage.clear(); window.location.href = '/login';"
+    >
+      Cerrar sesión
+    </button>
   </aside>
 </div>
