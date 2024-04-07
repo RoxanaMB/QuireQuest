@@ -72,9 +72,8 @@
           class="bg-gray-50 border w-44 border-gray-300 text-gray-900 text-sm rounded-lg block p-1.5"
           (change)="onModelChange($event)"
         >
-          <option disabled selected>Elige un modelo</option>
           <!-- Iterar sobre los modelos y mostrar opciones -->
-          <option *ngFor="let modelo of models" [value]="modelo.name">
+          <option *ngFor="let modelo of models; let first = first" [value]="modelo.name" [selected]="first">
             {{ modelo.name }}
           </option>
         </select>

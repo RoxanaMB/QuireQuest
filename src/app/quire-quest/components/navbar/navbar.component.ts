@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { ModelsService } from '../../services/models.service';
 
 @Component({
@@ -6,15 +6,12 @@ import { ModelsService } from '../../services/models.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   @Output() dataChange = new EventEmitter();
   models: { id: string, name: string }[];
 
   constructor(public modelsService: ModelsService) {
     this.models = [];
-  }
-
-  ngOnInit(): void {
     this.getModels();
   }
 

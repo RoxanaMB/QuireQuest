@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MessagesService } from './../../services/messages.service';
 import { UsersService } from './../../services/users.service';
 
@@ -11,13 +11,13 @@ export class ChatComponent {
   messages: { role: string, name: string, content: string }[];
   topic: string;
   rate: number;
-  chat: string;
+  @Input() chat: string;
   ia_model: string;
   user_name: string;
 
   constructor(public messagesService: MessagesService, public usersService: UsersService) { 
     this.messages = [];
-    this.ia_model = '';
+    this.ia_model = 'FireFunction v1';
     this.topic = '';
     this.rate = 0;
     this.chat = '';
@@ -53,6 +53,7 @@ export class ChatComponent {
     };
 
     this.messagesService.sendMessage(message).subscribe((response: any) => {
+      console.log(message.chat);
       this.messages.push({ role: 'assistant', name: this.ia_model, content: response.response });
     });
   }

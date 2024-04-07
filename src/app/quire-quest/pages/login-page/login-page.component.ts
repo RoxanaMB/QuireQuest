@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { UsersService } from '../../services/users.service';
+import { ChatService } from '../../services/chat.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -10,7 +12,7 @@ export class LoginPageComponent {
   email: string;
   password: string;
 
-  constructor(public userService: UsersService) {
+  constructor(public userService: UsersService, public chatService: ChatService, public router: Router) {
     this.email = "";
     this.password = "";
   }
@@ -24,7 +26,13 @@ export class LoginPageComponent {
       const token = response.token;
       if (token) {
         localStorage.setItem("token", token);
-        window.location.href = "/chat";
+        this.chatService.createChat(response.user_id).subscribe((response: any) => {
+          this.chatService.setChatId1(response[0].id);
+        });
+        this.chatService.createChat(response.user_id).subscribe((response: any) => {
+          this.chatService.setChatId2(response[0].id);
+        });
+        this.router.navigate(["/chat"]);
       }
     });
   }
