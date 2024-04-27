@@ -23,13 +23,13 @@ export class ChatPageComponent {
     });
   }
 
-  showProfile() {
-    document.addEventListener("DOMContentLoaded", function(event) {
-      const updateProductButton = document.getElementById('updateProductButton');
-      if (updateProductButton) {
-        updateProductButton.click();
-      }
-    });
-  }
+  // showProfile() {
+  //   document.addEventListener("DOMContentLoaded", function(event) {
+  //     const updateProductButton = document.getElementById('updateProductButton');
+  //     if (updateProductButton) {
+  //       updateProductButton.click();
+  //     }
+  //   });
+  // }
 
 }

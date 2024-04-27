@@ -26,7 +26,7 @@ export class ChatComponent {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      window.location.href = '/login';
+      return;
     } else {
       this.usersService.getUser(token).subscribe((response: {user_id: string, user_name: string}) => {
         this.user_name = response.user_name;

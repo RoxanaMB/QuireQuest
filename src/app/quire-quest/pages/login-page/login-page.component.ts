@@ -33,6 +33,8 @@ export class LoginPageComponent {
           this.chatService.setChatId2(response[0].id);
         });
         this.router.navigate(["/chat"]);
+      } else {
+        alert("Invalid email or password");
       }
     });
   }

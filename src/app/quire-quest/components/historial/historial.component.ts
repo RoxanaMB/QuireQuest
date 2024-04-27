@@ -17,7 +17,8 @@ export class HistorialComponent {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      window.location.href = '/login';
+      this.user_id = ''
+      this.user_name = '';
     } else {
       this.usersService.getUser(token).subscribe((response: {user_id: string, user_name: string}) => {
         this.user_id = response.user_id;
