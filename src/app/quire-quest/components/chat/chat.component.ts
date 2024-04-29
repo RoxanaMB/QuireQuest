@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { MessagesService } from './../../services/messages.service';
 import { UsersService } from './../../services/users.service';
 
@@ -11,9 +11,17 @@ export class ChatComponent {
   messages: { role: string, name: string, content: string }[];
   topic: string;
   rate: number;
-  @Input() chat: string;
   ia_model: string;
   user_name: string;
+  
+  @Input() chat: string;
+  @Input() set content(value: string) {
+    if (!value) {
+      return;
+    }
+    this.messages.push({ role: 'user', name: this.user_name, content: value });
+    this.sendMessage();
+  }
 
   constructor(public messagesService: MessagesService, public usersService: UsersService) { 
     this.messages = [];
@@ -22,6 +30,8 @@ export class ChatComponent {
     this.rate = 0;
     this.chat = '';
     this.user_name = '';
+
+    this.content = "";
 
     const token = localStorage.getItem('token');
 
@@ -36,11 +46,6 @@ export class ChatComponent {
 
   onSelectModel(event: any) {
     this.ia_model = event;
-  }
-
-  onChangeData(event: any) {
-    this.messages.push({ role: 'user', name: this.user_name, content: event });
-    this.sendMessage();
   }
 
   sendMessage() {

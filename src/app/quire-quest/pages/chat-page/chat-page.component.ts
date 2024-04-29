@@ -1,18 +1,22 @@
-import { Component, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
+import { MessagesService } from '../../services/messages.service';
+import { UsersService } from './../../services/users.service';
 
 @Component({
   selector: 'app-chat-page',
   templateUrl: './chat-page.component.html',
-  styleUrls: ['./chat-page.component.css']
+  styleUrls: ['./chat-page.component.css'],
 })
 export class ChatPageComponent {
-  @Output() chat_1_id: string;
+  chat_1_id: string;
   chat_2_id: string;
+  message: string;
 
-  constructor(public chatService: ChatService) {
+  constructor(public chatService: ChatService, public messagesService: MessagesService, public usersService: UsersService) {
     this.chat_1_id = "";
     this.chat_2_id = "";
+    this.message = "";
 
     this.chatService.getChatId1.subscribe((response: string) => {
       this.chat_1_id = response;
@@ -23,13 +27,9 @@ export class ChatPageComponent {
     });
   }
 
-  // showProfile() {
-  //   document.addEventListener("DOMContentLoaded", function(event) {
-  //     const updateProductButton = document.getElementById('updateProductButton');
-  //     if (updateProductButton) {
-  //       updateProductButton.click();
-  //     }
-  //   });
-  // }
+  onReciveMessage(message: string) {
+    this.message = message;
+    console.log(this.message);
+  }
 
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MessagesService } from '../../services/messages.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { MessagesService } from '../../services/messages.service';
 })
 export class ChatInputComponent {
   @Output() dataChange = new EventEmitter();
-
+  
   content: string;
 
   constructor(public messagesService: MessagesService) {
@@ -18,5 +18,4 @@ export class ChatInputComponent {
   click() {
     this.dataChange.emit(this.content);
   }
-
 }

@@ -1,8 +1,11 @@
 <div>
   <app-historial></app-historial>
 
-  <div class="flex h-screen flex-col sm:flex-row justify-between md:ml-56">
-    <app-chat [chat]="chat_1_id" class="h-full w-full"></app-chat>
-    <app-chat [chat]="chat_2_id" class="h-full w-full"></app-chat>
+  <div class="flex max-h-screen mb-32 flex-col sm:flex-row justify-between md:ml-56">
+    <app-chat #id_1 [content]="message" [chat]="chat_1_id" class="w-full"></app-chat>
+    <app-chat #id_2 [content]="message" [chat]="chat_2_id" class="w-full"></app-chat>
+  </div>
+  <div class="border-2 fixed bottom-0 left-0 right-0 border-gray-200 md:ml-60 m-4 mb-2 rounded-lg">
+    <app-chat-input (dataChange)="onReciveMessage($event)"></app-chat-input>
   </div>
 </div>

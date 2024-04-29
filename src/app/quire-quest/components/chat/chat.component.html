@@ -1,12 +1,9 @@
 
-  <div class="flex max-h-screen flex-col w-full sm:min-h-screen h-full p-2">
+  <div class="flex flex-col w-full h-full p-2">
     <div class="flex-grow sticky top-0 z-10 flex-shrink-0 min-h-0">
       <app-navbar (dataChange)="onSelectModel($event)"></app-navbar>
     </div>
-    <div class="sm:py-10 py-3 px-1 overflow-y-auto">
+    <div class="sm:py-10 sm:mb-24 py-3 px-1 overflow-y-auto">
       <app-chat-messages [messages]="messages" [ia_model]="ia_model"></app-chat-messages>
-    </div>
-    <div class="border-2 sticky bottom-0 border-gray-200 rounded-lg flex-shrink-0">
-      <app-chat-input (dataChange)="onChangeData($event)"></app-chat-input>
     </div>
   </div>
