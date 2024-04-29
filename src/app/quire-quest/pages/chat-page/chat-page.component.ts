@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
-import { MessagesService } from '../../services/messages.service';
-import { UsersService } from './../../services/users.service';
 
 @Component({
   selector: 'app-chat-page',
@@ -13,7 +11,7 @@ export class ChatPageComponent {
   chat_2_id: string;
   message: string;
 
-  constructor(public chatService: ChatService, public messagesService: MessagesService, public usersService: UsersService) {
+  constructor(public chatService: ChatService) {
     this.chat_1_id = "";
     this.chat_2_id = "";
     this.message = "";
@@ -29,7 +27,6 @@ export class ChatPageComponent {
 
   onReciveMessage(message: string) {
     this.message = message;
-    console.log(this.message);
   }
 
 }
