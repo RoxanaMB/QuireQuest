@@ -19,7 +19,7 @@
           <p
             class="text-sm font-normal text-gray-900"
           >
-            {{ message.content }}
+            {{ message.content }} 
           </p>
         </div>
       </div>
@@ -44,7 +44,11 @@
             <p
               class="text-sm font-normal text-gray-900"
             >
-              {{ message.content }}
+              <!-- Mostrar mensaje, calificación, tema y justificación -->
+              <p>{{ message.content }}</p>
+              <p>Calificación: {{ rate }}</p>
+              <p>Tema: {{ topic }}</p>
+              <p>Justificación: {{ just }}
             </p>
           </div>
         </div>

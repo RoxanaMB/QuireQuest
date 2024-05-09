@@ -8,6 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ChatMessagesComponent implements OnInit{
 
   @Input() messages: { role: string, name: string, content: string }[];
+  @Input() topic: string;
+  @Input() rate: number;
+  @Input() just: string;
   @Input() ia_model: string;
 
   ngOnInit(): void {
@@ -17,5 +20,8 @@ export class ChatMessagesComponent implements OnInit{
   constructor() {
     this.messages = [];
     this.ia_model = '';
+    this.topic = '';
+    this.rate = 0;
+    this.just = '';
   }
 }

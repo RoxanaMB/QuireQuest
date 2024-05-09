@@ -15,6 +15,7 @@ export class ChatComponent implements OnInit {
   ia_model: string;
   user_name: string;
   user_id: string;
+  just: string;
   
   @Input() chat: string;
   @Input() set content(value: string) {
@@ -36,6 +37,7 @@ export class ChatComponent implements OnInit {
     this.user_id = '';
 
     this.content = "";
+    this.just = '';
   }
 
   ngOnInit() {
@@ -74,7 +76,11 @@ export class ChatComponent implements OnInit {
 
     this.messagesService.sendMessage(message).subscribe((response: any) => {
       console.log(message.chat);
-      this.messages.push({ role: 'assistant', name: this.ia_model, content: response.response });
+      console.log(response);
+      this.rate = response.cal;
+      this.topic = response.tema;
+      this.just = response.just;
+      this.messages.push({ role: 'assistant', name: this.ia_model, content: response.response});
     });
   }
 
