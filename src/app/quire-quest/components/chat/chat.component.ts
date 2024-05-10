@@ -10,6 +10,7 @@ import { ChatService } from './../../services/chat.service';
 })
 export class ChatComponent implements OnInit {
   messages: { role: string, name: string, content: string }[];
+  messages_: { role: string, name: string, content: string, rate: number, just: string, topic: string }[];
   topic: string;
   rate: number;
   ia_model: string;
@@ -23,11 +24,13 @@ export class ChatComponent implements OnInit {
       return;
     }
     this.messages.push({ role: 'user', name: this.user_name, content: value });
+    this.messages_.push({ role: 'user', name: this.user_name, content: value, rate: 0, just: '', topic: ''});
     this.sendMessage();
   }
 
   constructor(public messagesService: MessagesService, public usersService: UsersService, public chatService: ChatService) { 
     this.messages = [];
+    this.messages_ = [];
     this.ia_model = 'FireFunction v1';
     this.topic = '';
     this.rate = 0;
@@ -81,6 +84,7 @@ export class ChatComponent implements OnInit {
       this.topic = response.tema;
       this.just = response.just;
       this.messages.push({ role: 'assistant', name: this.ia_model, content: response.response});
+      this.messages_.push({ role: 'assistant', name: this.ia_model, content: response.response, rate: this.rate, just: this.just, topic: this.topic});
     });
   }
 

@@ -1,4 +1,4 @@
-<div *ngFor="let message of messages">
+<div *ngFor="let message of messages_">
   <div>
     <div
       class="flex pt-5 items-end justify-end gap-2.5"
@@ -14,7 +14,7 @@
           >
         </div>
         <div
-          class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl"
+          class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-200 rounded-e-xl rounded-es-xl"
         >
           <p
             class="text-sm font-normal text-gray-900"
@@ -41,15 +41,12 @@
           <div
             class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl"
           >
-            <p
-              class="text-sm font-normal text-gray-900"
-            >
-              <!-- Mostrar mensaje, calificación, tema y justificación -->
-              <p>{{ message.content }}</p>
-              <p>Calificación: {{ rate }}</p>
-              <p>Tema: {{ topic }}</p>
-              <p>Justificación: {{ just }}
-            </p>
+              <!-- Mostrar mensaje, calificación y justificación -->
+              <p class="text-sm font-normal text-gray-900 pb-3">{{ message.content }}</p>
+              <div class="bg-gray-200 rounded-md p-2 text-xs">
+                <p>Calificación: <strong>{{ message.rate }}</strong></p>
+                <p class="text-gray-600 italic">{{ message.just }}</p>
+              </div>
           </div>
         </div>
       </div>
