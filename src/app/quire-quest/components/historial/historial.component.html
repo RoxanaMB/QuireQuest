@@ -39,52 +39,31 @@
       </a>
       <ul class="space-y-2 pt-5">
         <h1 class="px-4 text-polo-blue-600">Hoy</h1>
-        <li>
+        <li *ngFor="let conversation of conversations_today.slice(1)">
           <a
             class="flex items-center p-1 text-sm text-gray-900 rounded-lg hover:bg-gray-100 group"
           >
-            <span class="ms-3">Conversasión 1</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center p-1 text-sm text-gray-900 rounded-lg hover:bg-gray-100 group"
-          >
-            <span class="ms-3">Conversasión 2</span>
+            <span class="ms-3">{{conversation.title}}</span>
           </a>
         </li>
       </ul>
       <ul class="space-y-2 pt-5">
         <h1 class="px-4 text-polo-blue-600">Ayer</h1>
-        <li>
+        <li *ngFor="let conversation of conversations_yesterday.slice(1)">
           <a
             class="flex items-center p-1 text-sm text-gray-900 rounded-lg hover:bg-gray-100 group"
           >
-            <span class="ms-3">Conversasión 1</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center p-1 text-sm text-gray-900 rounded-lg hover:bg-gray-100 group"
-          >
-            <span class="ms-3">Conversasión 2</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center p-1 text-sm text-gray-900 rounded-lg hover:bg-gray-100 group"
-          >
-            <span class="ms-3">Conversasión 3</span>
+            <span class="ms-3">{{conversation.title}}</span>
           </a>
         </li>
       </ul>
       <ul class="space-y-2 pt-5">
         <h1 class="px-4 text-polo-blue-600">Anteriores</h1>
-        <li>
+        <li *ngFor="let conversation of conversations_older.slice(1)">
           <a
             class="flex items-center p-1 text-sm text-gray-900 rounded-lg hover:bg-gray-100 group"
           >
-            <span class="ms-3">Conversasión 1</span>
+            <span class="ms-3">{{conversation.title}}</span>
           </a>
         </li>
       </ul>

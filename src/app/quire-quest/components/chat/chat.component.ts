@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { MessagesService } from './../../services/messages.service';
 import { UsersService } from './../../services/users.service';
 import { ChatService } from './../../services/chat.service';
@@ -28,6 +28,8 @@ export class ChatComponent implements OnInit {
     this.sendMessage();
   }
 
+  @Output() dataChange = new EventEmitter();
+
   constructor(public messagesService: MessagesService, public usersService: UsersService, public chatService: ChatService) { 
     this.messages = [];
     this.messages_ = [];
@@ -53,6 +55,9 @@ export class ChatComponent implements OnInit {
       this.usersService.getUser(token).subscribe((response: {user_id: string, user_name: string}) => {
         this.user_name = response.user_name;
         this.user_id = response.user_id;
+
+        // Se emite el evento para que el padre pueda recibir el id del usuario
+        this.dataChange.emit(this.user_id);
     
         this.chatService.createChat(this.user_id).subscribe((response: any) => {
           this.chatService.setChatId1(response[0].id);
