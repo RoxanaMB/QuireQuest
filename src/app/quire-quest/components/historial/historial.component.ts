@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { ChatService } from '../../services/chat.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,8 @@ import { ConversationsService } from '../../services/conversations.service';
   styleUrls: ['./historial.component.css'],
 })
 export class HistorialComponent {
+  @Output() data_change = new EventEmitter();
+
   user_id: string;
   user_name: string;
   conversations: [
@@ -173,4 +175,19 @@ export class HistorialComponent {
       }
     }
   }
+
+  // Función para obtener la conversación seleccionada y mostrarla en la pantalla de chat
+  getConversation(conversation_id: string) {
+    console.log(conversation_id);
+    this.conversatioService
+      .getConversation(conversation_id)
+      .subscribe((response: any) => {
+        console.log({response});
+        this.data_change.emit(response);
+
+        this.chatService.setChatId1(response[0].chat_1);
+        this.chatService.setChatId2(response[0].chat_2);
+      });
+  }
+
 }

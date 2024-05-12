@@ -7,7 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ChatMessagesComponent implements OnInit{
 
-  @Input() messages_: { role: string, name: string, content: string, rate: number, just: string, topic: string }[];
+  messages_: { role: string, name: string, content: string, rate: number, just: string, topic: string }[];
+  @Input() set messages(value: { role: string, name: string, content: string, rate: number, just: string, topic: string }[]) {
+    this.messages_ = value;
+    console.log(this.messages_);
+  }
   @Input() ia_model: string;
 
   ngOnInit(): void {
@@ -18,4 +22,5 @@ export class ChatMessagesComponent implements OnInit{
     this.messages_ = [];
     this.ia_model = '';
   }
+
 }

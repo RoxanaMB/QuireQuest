@@ -12,6 +12,10 @@ export class ConversationsService {
     return this.http.get(`http://127.0.0.1:5000/conversations/${user_id}`);
   }
 
+  getConversation(conversation_id: string) {
+    return this.http.get(`http://127.0.0.1:5000/conversation/${conversation_id}`);
+  }
+
   createConversation(user: string, chat_1: string, chat_2: string, message: string) {
     return this.http.post("http://127.0.0.1:5000/conversation", {
       headers: {

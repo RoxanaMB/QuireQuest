@@ -22,10 +22,12 @@ export class ChatPageComponent {
 
     this.chatService.getChatId1.subscribe((response: string) => {
       this.chat_1_id = response;
+      console.log(this.chat_1_id);
     });
 
     this.chatService.getChatId2.subscribe((response: string) => {
       this.chat_2_id = response;
+      console.log(this.chat_2_id);
     });
 
     const token = localStorage.getItem('token');
@@ -44,6 +46,19 @@ export class ChatPageComponent {
 
     // Se crea la conversación (si no existe)
     this.conversationService.createConversation(this.user_id, this.chat_1_id, this.chat_2_id, this.message).subscribe();
+  }
+
+
+  // TODO: Borrar
+  onReciveConversation(conversation: [{id: string, chat_1: string, chat_2: string, created_at: string, title: string | null, user: string}]) {
+    console.log(conversation[0].chat_1);
+    // this.chatService.setChatId1(conversation[0].chat_1);
+    // this.chatService.setChatId2(conversation[0].chat_2);
+
+    // this.chat_1_id = conversation[0].chat_1;
+    // this.chat_2_id = conversation[0].chat_2;
+    console.log(this.chat_1_id);
+    console.log(this.chat_2_id);
   }
 
 }

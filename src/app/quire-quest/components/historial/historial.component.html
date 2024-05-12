@@ -42,6 +42,7 @@
         <li *ngFor="let conversation of conversations_today.slice(1)">
           <a
             class="flex items-center p-1 text-sm text-gray-900 rounded-lg hover:bg-gray-100 group"
+            (click)="getConversation(conversation.id)"
           >
             <span class="ms-3">{{conversation.title}}</span>
           </a>
@@ -52,6 +53,7 @@
         <li *ngFor="let conversation of conversations_yesterday.slice(1)">
           <a
             class="flex items-center p-1 text-sm text-gray-900 rounded-lg hover:bg-gray-100 group"
+            (click)="getConversation(conversation.id)"
           >
             <span class="ms-3">{{conversation.title}}</span>
           </a>
@@ -62,6 +64,7 @@
         <li *ngFor="let conversation of conversations_older.slice(1)">
           <a
             class="flex items-center p-1 text-sm text-gray-900 rounded-lg hover:bg-gray-100 group"
+            (click)="getConversation(conversation.id)"
           >
             <span class="ms-3">{{conversation.title}}</span>
           </a>

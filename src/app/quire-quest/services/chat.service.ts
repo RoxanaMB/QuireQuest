@@ -30,4 +30,8 @@ export class ChatService {
       body: chat,
     });
   }
+
+  getChat(chat_id: string): Observable<any> {
+    return this.http.get(`http://127.0.0.1:5000/chat/${chat_id}/messages`);
+  }
 }

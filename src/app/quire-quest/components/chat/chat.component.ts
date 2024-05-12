@@ -17,8 +17,18 @@ export class ChatComponent implements OnInit {
   user_name: string;
   user_id: string;
   just: string;
+  chat_id: string;
   
-  @Input() chat: string;
+  // @Input() chat: string;
+  @Input() set chat(value: string) {
+    console.log({value});
+    this.chat_id = value;
+    this.chatService.getChat(value).subscribe((response: any) => {
+      console.log({response});
+      this.messages_ = response;
+    });
+  }
+   
   @Input() set content(value: string) {
     if (!value) {
       return;
@@ -37,6 +47,7 @@ export class ChatComponent implements OnInit {
     this.topic = '';
     this.rate = 0;
     this.chat = '';
+    this.chat_id = '';
     
     this.user_name = '';
     this.user_id = '';
@@ -78,7 +89,7 @@ export class ChatComponent implements OnInit {
       content: this.messages,
       topic: this.topic,
       rate: this.rate,
-      chat: this.chat,
+      chat: this.chat_id,
       ia_model: this.ia_model
     };
 
