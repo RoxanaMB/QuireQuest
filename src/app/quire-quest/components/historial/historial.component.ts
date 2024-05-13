@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input} from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { ChatService } from '../../services/chat.service';
 import { ConversationsService } from '../../services/conversations.service';
@@ -10,6 +10,11 @@ import { ConversationsService } from '../../services/conversations.service';
 })
 export class HistorialComponent {
   @Output() data_change = new EventEmitter();
+  @Input() set new_conv(value: any) {
+    if (value) {
+      this.loadConversations();
+    }
+  }
 
   user_id: string;
   user_name: string;
@@ -124,21 +129,38 @@ export class HistorialComponent {
             .getConversations(this.user_id)
             .subscribe((response: any) => {
               this.conversations = response;
-              
+
               this.copyConversations(this.conversations);
             });
         });
     }
   }
 
+  // Método para cargar las conversaciones nuevamente
+  loadConversations() {
+    this.conversatioService
+      .getConversations(this.user_id)
+      .subscribe((response: any) => {
+        this.conversations = response;
+        // Limpiar las listas de conversaciones antes de copiar las nuevas
+        this.conversations_today = [{ id: '', chat_1: '', chat_2: '', created_at: '', title: '', user: '' }];
+        this.conversations_yesterday = [{ id: '', chat_1: '', chat_2: '', created_at: '', title: '', user: ''}];
+        this.conversations_older = [{ id: '', chat_1: '', chat_2: '', created_at: '', title: '', user: ''}];
+        // Copiar las nuevas conversaciones en las listas correspondientes
+        this.copyConversations(this.conversations);
+      });
+  }
+
   // Funcion que crea un nuevo chat al hacer click en el boton de nuevo chat
   newChat() {
     this.chatService.createChat(this.user_id).subscribe((response: any) => {
       this.chatService.setChatId1(response[0].id);
+      this.loadConversations();
     });
 
     this.chatService.createChat(this.user_id).subscribe((response: any) => {
       this.chatService.setChatId2(response[0].id);
+      this.loadConversations();
     });
 
     window.location.reload();
@@ -185,5 +207,4 @@ export class HistorialComponent {
         this.chatService.setChatId2(response[0].chat_2);
       });
   }
-
 }

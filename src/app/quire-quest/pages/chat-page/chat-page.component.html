@@ -1,7 +1,7 @@
 <div class="">
-  <app-historial></app-historial>
+  <app-historial [new_conv]="message"></app-historial>
 
-  <div class="flex max-h-screen flex-col sm:h-full h-screen sm:flex-row md:ml-56">
+  <div class="flex  flex-col sm:h-full h-screen sm:flex-row md:ml-56">
     <app-chat #id_1 [content]="message" [chat]="chat_1_id" class="h-1/2 w-full"></app-chat>
     <!-- Separador vertical que ocupe como mínimo el tamaño de la pantalla y que siga del tamaño de la conversación -->
     <div class="sm:flex-grow sm:border-r-2 sm:border-gray-200"></div>
