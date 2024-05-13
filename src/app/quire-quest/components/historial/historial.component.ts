@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { ChatService } from '../../services/chat.service';
-import { Router } from '@angular/router';
 import { ConversationsService } from '../../services/conversations.service';
 
 @Component({
@@ -61,7 +60,6 @@ export class HistorialComponent {
   constructor(
     private usersService: UsersService,
     private chatService: ChatService,
-    private router: Router,
     private conversatioService: ConversationsService
   ) {
     this.user_id = '';
@@ -178,11 +176,9 @@ export class HistorialComponent {
 
   // Función para obtener la conversación seleccionada y mostrarla en la pantalla de chat
   getConversation(conversation_id: string) {
-    console.log(conversation_id);
     this.conversatioService
       .getConversation(conversation_id)
       .subscribe((response: any) => {
-        console.log({response});
         this.data_change.emit(response);
 
         this.chatService.setChatId1(response[0].chat_1);

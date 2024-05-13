@@ -10,7 +10,6 @@ export class ChatMessagesComponent implements OnInit{
   messages_: { role: string, name: string, content: string, rate: number, just: string, topic: string }[];
   @Input() set messages(value: { role: string, name: string, content: string, rate: number, just: string, topic: string }[]) {
     this.messages_ = value;
-    console.log(this.messages_);
   }
   @Input() ia_model: string;
 

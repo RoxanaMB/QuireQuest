@@ -21,10 +21,8 @@ export class ChatComponent implements OnInit {
   
   // @Input() chat: string;
   @Input() set chat(value: string) {
-    console.log({value});
     this.chat_id = value;
     this.chatService.getChat(value).subscribe((response: any) => {
-      console.log({response});
       this.messages_ = response;
     });
   }
@@ -90,12 +88,11 @@ export class ChatComponent implements OnInit {
       topic: this.topic,
       rate: this.rate,
       chat: this.chat_id,
-      ia_model: this.ia_model
+      ia_model: this.ia_model,
+      name: this.user_name,
     };
 
     this.messagesService.sendMessage(message).subscribe((response: any) => {
-      console.log(message.chat);
-      console.log(response);
       this.rate = response.cal;
       this.topic = response.tema;
       this.just = response.just;
