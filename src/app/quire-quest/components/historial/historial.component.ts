@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Output, Input} from '@angular/core';
-import { UsersService } from '../../services/users.service';
-import { ChatService } from '../../services/chat.service';
-import { ConversationsService } from '../../services/conversations.service';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { UsersService } from '../../services/users/users.service';
+import { ChatService } from '../../services/chat/chat.service';
+import { ConversationsService } from '../../services/conversations/conversations.service';
 
 @Component({
   selector: 'app-historial',
@@ -18,6 +18,7 @@ export class HistorialComponent {
 
   user_id: string;
   user_name: string;
+
   conversations: [
     {
       id: string;
@@ -28,7 +29,6 @@ export class HistorialComponent {
       user: string;
     }
   ];
-
   conversations_today: [
     {
       id: string;
@@ -39,7 +39,6 @@ export class HistorialComponent {
       user: string;
     }
   ];
-
   conversations_yesterday: [
     {
       id: string;
@@ -50,7 +49,6 @@ export class HistorialComponent {
       user: string;
     }
   ];
-
   conversations_older: [
     {
       id: string;
@@ -69,48 +67,18 @@ export class HistorialComponent {
   ) {
     this.user_id = '';
     this.user_name = '';
+
     this.conversations = [
-      {
-        id: '',
-        chat_1: '',
-        chat_2: '',
-        created_at: '',
-        title: '',
-        user: '',
-      },
+      { id: '', chat_1: '', chat_2: '', created_at: '', title: '', user: '' },
     ];
-
     this.conversations_today = [
-      {
-        id: '',
-        chat_1: '',
-        chat_2: '',
-        created_at: '',
-        title: '',
-        user: '',
-      },
+      { id: '', chat_1: '', chat_2: '', created_at: '', title: '', user: '' },
     ];
-
     this.conversations_yesterday = [
-      {
-        id: '',
-        chat_1: '',
-        chat_2: '',
-        created_at: '',
-        title: '',
-        user: '',
-      },
+      { id: '', chat_1: '', chat_2: '', created_at: '', title: '', user: '' },
     ];
-
     this.conversations_older = [
-      {
-        id: '',
-        chat_1: '',
-        chat_2: '',
-        created_at: '',
-        title: '',
-        user: '',
-      },
+      { id: '', chat_1: '', chat_2: '', created_at: '', title: '', user: '' },
     ];
 
     const token = localStorage.getItem('token');
@@ -143,9 +111,36 @@ export class HistorialComponent {
       .subscribe((response: any) => {
         this.conversations = response;
         // Limpiar las listas de conversaciones antes de copiar las nuevas
-        this.conversations_today = [{ id: '', chat_1: '', chat_2: '', created_at: '', title: '', user: '' }];
-        this.conversations_yesterday = [{ id: '', chat_1: '', chat_2: '', created_at: '', title: '', user: ''}];
-        this.conversations_older = [{ id: '', chat_1: '', chat_2: '', created_at: '', title: '', user: ''}];
+        this.conversations_today = [
+          {
+            id: '',
+            chat_1: '',
+            chat_2: '',
+            created_at: '',
+            title: '',
+            user: '',
+          },
+        ];
+        this.conversations_yesterday = [
+          {
+            id: '',
+            chat_1: '',
+            chat_2: '',
+            created_at: '',
+            title: '',
+            user: '',
+          },
+        ];
+        this.conversations_older = [
+          {
+            id: '',
+            chat_1: '',
+            chat_2: '',
+            created_at: '',
+            title: '',
+            user: '',
+          },
+        ];
         // Copiar las nuevas conversaciones en las listas correspondientes
         this.copyConversations(this.conversations);
       });

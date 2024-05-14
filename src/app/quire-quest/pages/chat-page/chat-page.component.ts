@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ChatService } from '../../services/chat.service';
-import { ConversationsService } from '../../services/conversations.service';
-import { UsersService } from '../../services/users.service';
+import { ChatService } from '../../services/chat/chat.service';
+import { ConversationsService } from '../../services/conversations/conversations.service';
+import { UsersService } from '../../services/users/users.service';
 
 @Component({
   selector: 'app-chat-page',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UsersService } from '../../services/users.service';
-import { ChatService } from '../../services/chat.service';
+import { UsersService } from '../../services/users/users.service';
+import { ChatService } from '../../services/chat/chat.service';
 import { Router } from '@angular/router';
 
 @Component({

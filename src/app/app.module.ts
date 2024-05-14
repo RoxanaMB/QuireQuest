@@ -8,8 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthComponent } from './quire-quest/pages/auth/auth.component';
-import { AccountComponent } from './quire-quest/pages/account/account.component';
 import { LoginPageComponent } from './quire-quest/pages/login-page/login-page.component';
 import { SignUpPageComponent } from './quire-quest/pages/sign-up-page/sign-up-page.component';
 import { HomePageComponent } from './quire-quest/pages/home-page/home-page.component';
@@ -26,8 +24,6 @@ import { ChatComponent } from './quire-quest/components/chat/chat.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent,
-    AccountComponent,
     LoginPageComponent,
     SignUpPageComponent,
     HomePageComponent,

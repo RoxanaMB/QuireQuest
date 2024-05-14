@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { SupabaseService } from './supabase.service'
 
 @Component({
   selector: 'app-root',
@@ -7,13 +6,13 @@ import { SupabaseService } from './supabase.service'
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'angular-user-management'
-
-  session = this.supabase.session
-
-  constructor(private readonly supabase: SupabaseService) {}
+  title = 'QuireQuest'
 
   ngOnInit() {
-    this.supabase.authChanges((_, session) => (this.session = session))
+    // Check for the presence of a user token
+    const token = localStorage.getItem('token')
+    if (token) {
+      localStorage.setItem('authenticated', 'true')
+    }
   }
 }

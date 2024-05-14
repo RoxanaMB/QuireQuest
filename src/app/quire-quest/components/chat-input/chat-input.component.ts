@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { MessagesService } from '../../services/messages.service';
+import { MessagesService } from '../../services/messages/messages.service';
 
 @Component({
   selector: 'app-chat-input',

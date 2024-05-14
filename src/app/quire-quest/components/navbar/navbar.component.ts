@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { ModelsService } from '../../services/models.service';
+import { ModelsService } from '../../services/models/models.service';
 
 @Component({
   selector: 'app-navbar',
