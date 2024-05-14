@@ -9,15 +9,15 @@ export class ConversationsService {
   constructor(private http: HttpClient) { }
 
   getConversations(user_id: string) {
-    return this.http.get(`http://127.0.0.1:5000/conversations/${user_id}`);
+    return this.http.get(`https://qq-back.onrender.com/conversations/${user_id}`);
   }
 
   getConversation(conversation_id: string) {
-    return this.http.get(`http://127.0.0.1:5000/conversation/${conversation_id}`);
+    return this.http.get(`https://qq-back.onrender.com/conversation/${conversation_id}`);
   }
 
   createConversation(user: string, chat_1: string, chat_2: string, message: string) {
-    return this.http.post("http://127.0.0.1:5000/conversation", {
+    return this.http.post("https://qq-back.onrender.com/conversation", {
       headers: {
         "Content-Type": "application/json",
       },

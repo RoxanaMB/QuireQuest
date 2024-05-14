@@ -9,10 +9,10 @@ export class MessagesService {
   constructor(private http: HttpClient) { }
 
   getMessages(): any {
-    return this.http.get("http://127.0.0.1:5000/messages");
+    return this.http.get("https://qq-back.onrender.com/messages");
   }
 
   sendMessage(message: any): any {
-    return this.http.post("http://127.0.0.1:5000/message", message);
+    return this.http.post("https://qq-back.onrender.com/message", message);
   }
 }

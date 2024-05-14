@@ -23,7 +23,7 @@ export class ChatService {
   constructor(private http: HttpClient) { }
 
   createChat(chat: any): Observable<any> {
-    return this.http.post("http://127.0.0.1:5000/chat", {
+    return this.http.post("https://qq-back.onrender.com/chat", {
       Headers: {
         "Content-Type": "application/json",
       },
@@ -32,6 +32,6 @@ export class ChatService {
   }
 
   getChat(chat_id: string): Observable<any> {
-    return this.http.get(`http://127.0.0.1:5000/chat/${chat_id}/messages`);
+    return this.http.get(`https://qq-back.onrender.com/chat/${chat_id}/messages`);
   }
 }
