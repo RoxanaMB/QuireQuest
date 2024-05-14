@@ -10,15 +10,15 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   login(user: any): Observable<any> {
-    return this.http.post("http://127.0.0.1:5000/login", user);
+    return this.http.post("https://qq-back.vercel.app/login", user);
   }
 
   register(user: any): Observable<any> {
-    return this.http.post("http://127.0.0.1:5000/register", user);
+    return this.http.post("https://qq-back.vercel.app/register", user);
   }
 
   getUser(token: string): Observable<any> {
-    return this.http.get("http://127.0.0.1:5000/user", {
+    return this.http.get("https://qq-back.vercel.app/user", {
       headers: {
         'x-access-token': token
       }
