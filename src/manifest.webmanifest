@@ -1,8 +1,8 @@
 {
   "name": "QuireQuest",
   "short_name": "QuireQuest",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#cad2df",
+  "background_color": "#f8f4f4",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
